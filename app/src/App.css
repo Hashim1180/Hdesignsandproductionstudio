@@ -1,0 +1,127 @@
+/* App-specific styles */
+
+/* Ensure smooth scroll behavior is disabled for GSAP */
+html.lenis {
+  height: auto;
+}
+
+/* Section transitions */
+section {
+  position: relative;
+}
+
+/* Video optimization */
+video {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Image optimization */
+img {
+  will-change: transform;
+}
+
+/* Ensure proper stacking */
+.section-pinned {
+  backface-visibility: hidden;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .section-pinned {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  
+  /* Stack split panels on mobile */
+  .s2-left,
+  .s2-right {
+    width: 100% !important;
+    height: 50% !important;
+  }
+  
+  .s2-left {
+    top: 0 !important;
+  }
+  
+  .s2-right {
+    top: 50% !important;
+    left: 0 !important;
+  }
+  
+  .s2-rule {
+    display: none;
+  }
+  
+  /* Adjust content positioning */
+  .s3-content {
+    width: 90vw !important;
+    left: 5vw !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+  }
+  
+  /* Center headlines */
+  .s5-left,
+  .s5-right,
+  .s6-left,
+  .s6-right,
+  .s7-left,
+  .s7-right,
+  .s8-left,
+  .s8-right,
+  .s9-left,
+  .s9-right {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+    text-align: center !important;
+  }
+  
+  .s5-left { top: 35vh !important; }
+  .s5-right { top: 50vh !important; }
+  .s6-left { top: 35vh !important; }
+  .s6-right { top: 50vh !important; }
+  .s7-left { top: 35vh !important; }
+  .s7-right { top: 50vh !important; }
+  .s8-left { top: 35vh !important; }
+  .s8-right { top: 50vh !important; }
+  .s9-left { top: 35vh !important; }
+  .s9-right { top: 50vh !important; }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dark-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .vignette-overlay {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .grain-overlay,
+  .custom-cursor,
+  .custom-cursor-dot,
+  .music-player,
+  .menu-overlay,
+  video {
+    display: none !important;
+  }
+  
+  section {
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+}
